@@ -4,7 +4,7 @@ public class ServiceCheckLevel extends Service{
     }
 
     @Override
-    public boolean run() {
+    public boolean run(Container container) {
         System.out.println(container.containerStatus());
         return true;
     }

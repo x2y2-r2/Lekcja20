@@ -12,6 +12,6 @@ public class MenuDisplayer {
         for (MenuItem item : menuItems) {
             menuOptionNumber++;
             System.out.printf("| %-4s | %-8s | %n", "[" + menuOptionNumber + "]", item.createMenuItem());
-        };
+        }
    }
 }

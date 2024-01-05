@@ -1,8 +1,4 @@
 public class MenuItemQuit implements MenuItem{
-    @Override
-    public void setContainer(Container container) {
-
-    }
 
     @Override
     public String createMenuItem() {
@@ -10,7 +6,7 @@ public class MenuItemQuit implements MenuItem{
     }
 
     @Override
-    public boolean run() {
+    public boolean run(Container container) {
         return false;
     }
 }

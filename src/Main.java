@@ -6,6 +6,8 @@ public class Main {
         ControlPanel controlPanel = new ControlPanel();
         controlPanel.initControlPanel();
 
+
+
         //    Stwórz interfejs ekspresu do kawy.
 //    1. Ekspres ma uruchamiać się w stanie domyślnym (składniki uzupełnione do maksimum),
 //    gdzie ma w sobie:

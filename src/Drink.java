@@ -1,25 +1,19 @@
+import java.util.List;
 
-public class Drink implements MenuItem {
-    private final int coffee;
-    private final int water;
-    private final int milk;
+public class Drink implements MenuItem{
+
+    List<Ingredient> drinkIngredients;
+
     private final String name;
-    private Container container; //usunąć z tej klasy- contorl panel obsługuje pojemniki i jego zawartość
-// v2.0 dodać klasę Składnik z polami: nazwa i ilość. Drink ma kolekcję (Listę) składników ustawianą w konstruktorze.
     // Kontener ma mapę składników, jedna pętla przeszukuję mapę za składnikami, druga pomniejsza ilość składników jak robi drinka,
     // Jeżeli kontener nie ma danego składnika to powinien zwracać 0.
-    public Drink(String nazwa, int coffee, int water, int milk) {
-        this.name = nazwa;
-        this.coffee = coffee;
-        this.water = water;
-        this.milk = milk;
-        this.container = null;
-    }
-
-
-    @Override
-    public void setContainer(Container expressContainer) {
-        this.container = expressContainer;
+    public Drink(String name, int coffee, int water, int milk ) {
+        this.name = name;
+        this.drinkIngredients = List.of(
+                new Ingredient(IngredientType.COFFEE, coffee),
+                new Ingredient(IngredientType.WATER, water),
+                new Ingredient(IngredientType.MILK, milk)
+        );
     }
 
     @Override
@@ -28,17 +22,33 @@ public class Drink implements MenuItem {
     }
 
     @Override
-    public boolean run() {
-        if(container.coffeeLevel< coffee || container.milkLevel < milk || container.waterLevel < water){
+    public boolean run(Container container) {
+        int coffee = 0;
+        int water = 0;
+        int milk = 0;
+        for (Ingredient ingredient : drinkIngredients) {
+            switch (ingredient.ingredientType) {
+                case COFFEE -> coffee = ingredient.amount;
+                case WATER -> water = ingredient.amount;
+                case MILK -> milk = ingredient.amount;
+                }
+            }
+
+        if(container.containerLevel.get(IngredientType.COFFEE) < coffee
+                || container.containerLevel.get(IngredientType.MILK) < milk
+                || container.containerLevel.get(IngredientType.WATER) < water){
             System.out.println("Za mało składników, uzupełnij składniki");
+            System.out.println(container.containerStatus());
             return true;
         }
         System.out.println("Tworzę drinka + " + name);
-        container.coffeeLevel -= coffee;
-        container.waterLevel -= water;
-        container.milkLevel -= milk;
+        int newCoffeeLevel = container.containerLevel.get(IngredientType.COFFEE) - coffee;
+        int newWaterLevel = container.containerLevel.get(IngredientType.WATER) - water;
+        int newMilkLevel = container.containerLevel.get(IngredientType.MILK) - milk;
+        container.containerLevel.put(IngredientType.COFFEE , newCoffeeLevel );
+        container.containerLevel.put(IngredientType.WATER, newWaterLevel );
+        container.containerLevel.put( IngredientType.MILK , newMilkLevel );
+
         return true;
-
-
     }
 }
