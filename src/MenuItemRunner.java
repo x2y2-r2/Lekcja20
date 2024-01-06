@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 public class MenuItemRunner {
     Scanner scanner = new Scanner(System.in);
-
-
     public boolean runSelectedOption(List<MenuItem> menuItems, Container container) {
         System.out.println("Wybierz opcje z menu");
         int selectedIndex = scanner.nextInt();

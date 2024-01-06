@@ -5,10 +5,8 @@ public abstract class Service implements MenuItem {
     public Service(String nameOfService) {
         this.nameOfService = nameOfService;
     }
-
     @Override
     public String createMenuItem() {
         return nameOfService;
     }
-
 }

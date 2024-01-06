@@ -5,8 +5,7 @@ public class Drink implements MenuItem{
     List<Ingredient> drinkIngredients;
 
     private final String name;
-    // Kontener ma mapę składników, jedna pętla przeszukuję mapę za składnikami, druga pomniejsza ilość składników jak robi drinka,
-    // Jeżeli kontener nie ma danego składnika to powinien zwracać 0.
+
     public Drink(String name, int coffee, int water, int milk ) {
         this.name = name;
         this.drinkIngredients = List.of(

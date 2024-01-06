@@ -3,7 +3,7 @@ import java.util.List;
 
 public class ControlPanel {
     private final List<MenuItem> menuItems = new ArrayList<>();
-    Container expressContainer = new Container();  // czy jest sens robić private i ustawiać setter i getter?
+    Container expressContainer = new Container();
 
 
     private void initMenuItems() {

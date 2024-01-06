@@ -2,12 +2,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Container {
-    Map<IngredientType,Integer> containerLevel; // zmiana string na enum
+    Map<IngredientType,Integer> containerLevel;
     private int maxCoffeeLevel;
     private int maxMilkLevel;
     private int maxWaterLevel;
 
-// dodać metodę refill i zastąpić ją w ServiceRefill
     public Container() {
         this.containerLevel = new HashMap<>();
         this.maxCoffeeLevel = 10;
@@ -15,7 +14,6 @@ public class Container {
         this.maxMilkLevel = 5;
         refill();
     }
-    // ustawić maksymalną pojemność kontenera i sprawdzać ile został uzupełniony
 
     public String containerStatus() {
         return

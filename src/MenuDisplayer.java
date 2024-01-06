@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class MenuDisplayer {
-   public void displayMenu (List<MenuItem> menuItems) {
+       public void displayMenu (List<MenuItem> menuItems) {
        System.out.printf("--------------------------------%n");
        System.out.printf(" Java Express         %n");
        System.out.printf(" Jaką czynność chcesz wykonać?         %n");
