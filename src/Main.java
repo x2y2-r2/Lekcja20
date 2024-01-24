@@ -1,37 +1,10 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-        public static void main(String[] args) {
-
-        ControlPanel panel = new ControlPanel();
-        Container expressContainers = new Container();
-        panel.startInterface();
-                System.out.println(panel.getMenuOptions().values());
-        while (true) {
-                int menuOption = panel.chooseOptionFromMenu();
-                if (menuOption <= Drink.values().length){
-                        Drink drink;
-                        drink = panel.drinkFromMenu(menuOption);
-                        if (!expressContainers.isEmpty(expressContainers, drink)) {
-                                OrderProcessor drinkOrderProcess = new OrderProcessor(new DrinkStrategy(drink));
-                                drinkOrderProcess.executeOptionFromMenu(expressContainers);
-                        } else {
-                                System.out.println("Brak składników, wezwij serwis w celu uzupełnienia brakujących składników");
-                                OrderProcessor ingredientLevelProcess = new OrderProcessor(new IngredientsLevelStrategy());
-                                ingredientLevelProcess.executeOptionFromMenu(expressContainers);
-                                break;
-                                }
-                } else if (panel.getMenuOptions().values().("")) {
-                        OrderProcessor refillProcess = new OrderProcessor(new IsEmptyStrategy());
-                        refillProcess.executeOptionFromMenu(expressContainers);
-
-                }
-        }
-
-
-
-
-
+    public static void main(String[] args) {
+        ControlPanel controlPanel = new ControlPanel();
+        controlPanel.initControlPanel();
 
         //    Stwórz interfejs ekspresu do kawy.
 //    1. Ekspres ma uruchamiać się w stanie domyślnym (składniki uzupełnione do maksimum),
